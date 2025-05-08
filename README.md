@@ -113,3 +113,57 @@ Add this content:
 Visit http://localhost/index.php in your browser.
 
 ✅ If you see the PHP info page, it's working!
+
+Perfect! Here’s how to install MySQL and phpMyAdmin, and connect them to your Apache + PHP setup on Windows.
+
+# 🛠 Step 1: Install MySQL on Windows
+🔽 Download & Install:
+Go to: https://dev.mysql.com/downloads/installer/
+Choose the MySQL Installer (Community) → Windows (x86, 64-bit) → Download the full installer.
+Run the installer and choose "Developer Default" or "Server Only".
+During setup:
+Set a root password you’ll remember.
+Choose default settings for port (3306) and Windows service.
+✅ After installation, MySQL should run as a Windows service.
+
+# 🛠 Step 2: Test MySQL
+Open Command Prompt and type:
+mysql -u root -p
+Enter your password → If successful, you're in the MySQL shell.
+
+# 🛠 Step 3: Download & Configure phpMyAdmin
+🔽 Download:
+Go to: https://www.phpmyadmin.net/downloads/
+Download the phpMyAdmin .zip file.
+Extract it to:
+C:\Apache24\htdocs\phpmyadmin
+
+# ⚙️ Step 4: Configure config.inc.php
+Inside the extracted phpmyadmin folder, copy:
+config.sample.inc.php → config.inc.php
+Open config.inc.php and set the authentication type and password:
+$cfg['blowfish_secret'] = 'YourRandomSecret123!'; // At least 32 chars
+$cfg['Servers'][1]['auth_type'] = 'cookie';
+If needed, you can hardcode the login:
+$cfg['Servers'][1]['auth_type'] = 'config';
+$cfg['Servers'][1]['user'] = 'root';
+$cfg['Servers'][1]['password'] = 'your_root_password';
+
+# ✅ Step 5: Access phpMyAdmin
+Open your browser and go to:
+http://localhost/phpmyadmin
+Log in using:
+Username: root
+Password: Your MySQL root password
+
+# 🔐 Security Tips:
+Don’t use "auth_type" = "config" in production (use "cookie").
+Secure the phpmyadmin folder if you're on a public server.
+
+# ✅ At this point, you have:
+
+Apache serving PHP
+
+PHP connected to MySQL
+
+phpMyAdmin managing your MySQL database via web interface
