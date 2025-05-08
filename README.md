@@ -223,7 +223,7 @@ Run this SQL query in the SQL tab:
 12. <button type="submit">Add User</button>
 13. </form>
 
-14. <?php
+14. 
 15.     if ($_SERVER["REQUEST_METHOD"] == "POST") {
 16.     $stmt = $pdo->prepare("INSERT INTO users (name, email) VALUES (?, ?)");
 17.     $stmt->execute([$_POST['name'], $_POST['email']]);
@@ -235,7 +235,7 @@ Run this SQL query in the SQL tab:
 23.          echo "<li>{$row['name']} ({$row['email']})</li>";
 24.          }
 25.          echo "</ul>";
-26.          ?>
+26.         
 27.      </body>
 28.  </html>
 
@@ -246,4 +246,4 @@ http://localhost/testapp
 1. Submit a name and email
 2. You should see it added below
 
-
+Installing Apache on localhost, a remote server, or a virtual machine (VM) involves mostly the same software, but the environment, purpose, and setup process differ. Here's a breakdown:
