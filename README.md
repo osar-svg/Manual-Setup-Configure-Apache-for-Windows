@@ -272,6 +272,7 @@ You install with:
 sudo apt update && sudo apt install apache2
 
 Then configure DNS, SSL, and firewall.
+
 3. VM Apache install (e.g., Apache on Ubuntu VM inside VirtualBox on Windows):
 Test your app in Linux while still using Windows as your main OS.
 
