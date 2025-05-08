@@ -142,12 +142,12 @@ C:\Apache24\htdocs\phpmyadmin
 Inside the extracted phpmyadmin folder, copy:
 config.sample.inc.php → config.inc.php
 Open config.inc.php and set the authentication type and password:
-$cfg['blowfish_secret'] = 'YourRandomSecret123!'; // At least 32 chars
-$cfg['Servers'][1]['auth_type'] = 'cookie';
+// $cfg['blowfish_secret'] = 'YourRandomSecret123!'; // At least 32 chars
+// $cfg['Servers'][1]['auth_type'] = 'cookie';
 If needed, you can hardcode the login:
-$cfg['Servers'][1]['auth_type'] = 'config';
-$cfg['Servers'][1]['user'] = 'root';
-$cfg['Servers'][1]['password'] = 'your_root_password';
+// $cfg['Servers'][1]['auth_type'] = 'config';
+// $cfg['Servers'][1]['user'] = 'root';
+// $cfg['Servers'][1]['password'] = 'your_root_password';
 
 # ✅ Step 5: Access phpMyAdmin
 Open your browser and go to:
@@ -162,8 +162,6 @@ Secure the phpmyadmin folder if you're on a public server.
 
 # ✅ At this point, you have:
 
-Apache serving PHP
-
-PHP connected to MySQL
-
-phpMyAdmin managing your MySQL database via web interface
+1. Apache serving PHP
+2. PHP connected to MySQL
+3. phpMyAdmin managing your MySQL database via web interface
