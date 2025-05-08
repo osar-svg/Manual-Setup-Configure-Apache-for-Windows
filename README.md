@@ -169,3 +169,81 @@ Secure the phpmyadmin folder if you're on a public server.
 1. Apache serving PHP
 2. PHP connected to MySQL
 3. phpMyAdmin managing your MySQL database via web interface
+
+Awesome! Here's a simple PHP + MySQL test project you can use to confirm everything is working together:
+
+# 📁 Step 1: Create Project Folder
+Create a folder inside your Apache htdocs, for example:
+C:\Apache24\htdocs\testapp
+
+# 📄 Step 2: Create SQL Table
+Go to http://localhost/phpmyadmin.
+Create a new database named: testdb.
+Run this SQL query in the SQL tab:
+1. CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100),
+    email VARCHAR(100)
+);
+
+# 🧾 Step 3: Create PHP Test Files
+📄 db.php (Database connection)
+1. <?php
+2. $host = 'localhost';
+3. $db   = 'testdb';
+4. $user = 'root';
+5. $pass = ''; // Add password if you set one
+6. $charset = 'utf8mb4';
+7. $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
+8. $options = [
+    PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+
+]; 
+9. try {
+    $pdo = new PDO($dsn, $user, $pass, $options);
+} catch (\PDOException $e) {
+    die("Database connection failed: " . $e->getMessage());
+}
+10. ?>
+
+# 📄 index.php (Insert and display users)
+
+1. <?php include 'db.php'; ?>
+2. <!DOCTYPE html>
+3. <html>
+4. <head>
+5. <title>PHP MySQL Test</title>
+6. </head>
+7. <body>
+8. <h1>Users</h1>
+9. <form method="post">
+10. <input type="text" name="name" placeholder="Name" required>
+11. <input type="email" name="email" placeholder="Email" required>
+12. <button type="submit">Add User</button>
+13. </form>
+
+14. <?php
+15.     if ($_SERVER["REQUEST_METHOD"] == "POST") {
+16.     $stmt = $pdo->prepare("INSERT INTO users (name, email) VALUES (?, ?)");
+17.     $stmt->execute([$_POST['name'], $_POST['email']]);
+18.     echo "<p>User added!</p>";
+19.     }
+20.  $stmt = $pdo->query("SELECT * FROM users");
+21.      echo "<ul>";
+22.      while ($row = $stmt->fetch()) {
+23.          echo "<li>{$row['name']} ({$row['email']})</li>";
+24.          }
+25.          echo "</ul>";
+26.          ?>
+27.      </body>
+28.  </html>
+
+# ✅ Step 4: Run the Project
+Go to:
+http://localhost/testapp
+
+1. Submit a name and email
+2. You should see it added below
+
+
