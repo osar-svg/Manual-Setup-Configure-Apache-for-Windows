@@ -247,7 +247,8 @@ http://localhost/testapp
 2. You should see it added below
 3. Dump https://chatgpt.com/share/681ccd77-48a4-800f-8711-bedf463da7c5
 
-# Installing Apache on localhost, a remote server, or a virtual machine (VM) involves mostly the same software, but the environment, purpose, and setup process differ. Here's a breakdown:
+# Installing Apache on localhost, a remote server, or a virtual machine (VM) involves mostly the same software, but the environment, purpose, and setup process differ. 
+Here's a breakdown:
 
 # 🔍 Difference Between Apache Installation on:
 
