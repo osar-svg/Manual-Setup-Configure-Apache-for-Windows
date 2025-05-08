@@ -124,12 +124,13 @@ Run the installer and choose "Developer Default" or "Server Only".
 During setup:
 Set a root password you’ll remember.
 Choose default settings for port (3306) and Windows service.
+
 ✅ After installation, MySQL should run as a Windows service.
 
 # 🛠 Step 2: Test MySQL
 Open Command Prompt and type:
-mysql -u root -p
-Enter your password → If successful, you're in the MySQL shell.
+1. mysql -u root -p
+2. Enter your password → If successful, you're in the MySQL shell.
 
 # 🛠 Step 3: Download & Configure phpMyAdmin
 🔽 Download:
@@ -140,21 +141,24 @@ C:\Apache24\htdocs\phpmyadmin
 
 # ⚙️ Step 4: Configure config.inc.php
 Inside the extracted phpmyadmin folder, copy:
-config.sample.inc.php → config.inc.php
-Open config.inc.php and set the authentication type and password:
-// $cfg['blowfish_secret'] = 'YourRandomSecret123!'; // At least 32 chars
-// $cfg['Servers'][1]['auth_type'] = 'cookie';
-If needed, you can hardcode the login:
-// $cfg['Servers'][1]['auth_type'] = 'config';
-// $cfg['Servers'][1]['user'] = 'root';
-// $cfg['Servers'][1]['password'] = 'your_root_password';
+1. config.sample.inc.php → config.inc.php
+
+   Open config.inc.php and set the authentication type and password:
+1. $cfg['blowfish_secret'] = 'YourRandomSecret123!'; // At least 32 chars
+2. $cfg['Servers'][1]['auth_type'] = 'cookie';
+
+   If needed, you can hardcode the login:
+1. $cfg['Servers'][1]['auth_type'] = 'config';
+2. $cfg['Servers'][1]['user'] = 'root';
+3. $cfg['Servers'][1]['password'] = 'your_root_password';
 
 # ✅ Step 5: Access phpMyAdmin
 Open your browser and go to:
 http://localhost/phpmyadmin
+
 Log in using:
-Username: root
-Password: Your MySQL root password
+1. Username: root
+2. Password: Your MySQL root password
 
 # 🔐 Security Tips:
 Don’t use "auth_type" = "config" in production (use "cookie").
