@@ -188,7 +188,7 @@ Run this SQL query in the SQL tab:
 
 # 🧾 Step 3: Create PHP Test Files
 📄 db.php (Database connection)
-1. <?php
+<!-- 1. <?php
 2. $host = 'localhost';
 3. $db   = 'testdb';
 4. $user = 'root';
@@ -205,7 +205,7 @@ Run this SQL query in the SQL tab:
 } catch (\PDOException $e) {
     die("Database connection failed: " . $e->getMessage());
 }
-10. ?>
+10. ?>-->
 
 # 📄 index.php (Insert and display users)
 
@@ -223,7 +223,7 @@ Run this SQL query in the SQL tab:
 12. <button type="submit">Add User</button>
 13. </form>
 
-14. 
+14. <?php
 15.     if ($_SERVER["REQUEST_METHOD"] == "POST") {
 16.     $stmt = $pdo->prepare("INSERT INTO users (name, email) VALUES (?, ?)");
 17.     $stmt->execute([$_POST['name'], $_POST['email']]);
@@ -235,7 +235,7 @@ Run this SQL query in the SQL tab:
 23.          echo "<li>{$row['name']} ({$row['email']})</li>";
 24.          }
 25.          echo "</ul>";
-26.         
+26.         ?>
 27.      </body>
 28.  </html>
 
