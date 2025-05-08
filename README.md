@@ -35,9 +35,9 @@ XAMPP is a free Apache distribution that includes Apache, MySQL/MariaDB, PHP, an
 🔍 Apache will now be running on http://localhost.
 
 ✅ Option 2: Manual Apache Installation
+
 📥 Step 1: Download Apache Binaries
 Go to: https://www.apachelounge.com/download/
-
 Download the latest Apache HTTP Server for Windows (httpd-*.zip).
 
 📂 Step 2: Extract Files
@@ -54,7 +54,6 @@ httpd.exe -k install
 httpd.exe -k start
 
 Visit http://localhost in your browser to verify Apache is running.
-
 ⚠️ Notes
 If port 80 is in use (e.g., by Skype or IIS), Apache may fail to start.
 
